@@ -16,15 +16,14 @@ import java.util.List;
  */
 public class PacketDecoder extends ByteToMessageDecoder {
     protected void decode( ChannelHandlerContext ctx, ByteBuf byteBuf, List<Object> list ) throws Exception {
-        if ( byteBuf instanceof EmptyByteBuf ) {
+        if(byteBuf instanceof EmptyByteBuf)
             return;
-        }
-        int packetID = byteBuf.readInt();
-        Class<? extends Packet> packetClass = Protocol.getPacketFromId( packetID );
-        if ( packetClass != null ) {
+        int packetId = byteBuf.readInt();
+        Class<? extends Packet> packetClass = Protocol.getPacketFromId(packetId);
+        if(packetClass != null) {
             Packet packet = packetClass.newInstance();
-            packet.read( new ByteBufInputStream(byteBuf));
-            list.add( packet );
+            packet.read(new ByteBufInputStream(byteBuf));
+            list.add(packet);
         }
     }
 }

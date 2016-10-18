@@ -26,7 +26,7 @@ public class PacketManager {
 
     public void firePacket(ChannelHandlerContext ctx, Packet packet) {
         for(Handler handler : handlers.asList()) {
-            Method method = handler.getHandlerMethod(packet);
+            Method method = handler.getHandlerMethods(packet);
             if(method != null)
                 try {
                     method.invoke(handler, ctx, packet);

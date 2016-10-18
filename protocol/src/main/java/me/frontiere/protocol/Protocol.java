@@ -2,13 +2,15 @@ package me.frontiere.protocol;
 
 import lombok.Getter;
 import me.frontiere.protocol.packet.Packet;
+import me.frontiere.protocol.packets.MessagePacket;
 
 /**
  * Created by Overwatch on 18.10.2016.
  */
 @Getter
 public enum Protocol {
-    ;
+    MESSAGE_PACKET(1, MessagePacket.class);
+
     private int packetId;
     private Class<? extends Packet> packetClass;
 

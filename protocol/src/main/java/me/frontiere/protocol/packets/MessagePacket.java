@@ -4,6 +4,7 @@ import io.netty.buffer.ByteBufInputStream;
 import io.netty.buffer.ByteBufOutputStream;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import me.frontiere.protocol.packet.Packet;
 
 import java.io.IOException;
@@ -12,6 +13,7 @@ import java.io.IOException;
  * Created by Overwatch on 18.10.2016.
  */
 @Getter
+@NoArgsConstructor
 @AllArgsConstructor
 public class MessagePacket extends Packet {
     private String string;
