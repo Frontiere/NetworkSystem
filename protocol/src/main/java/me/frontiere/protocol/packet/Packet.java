@@ -13,6 +13,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public abstract class Packet {
-    public abstract void read( ByteBufInputStream byteBuf );
-    public abstract void write( ByteBufOutputStream byteBuf );
+    public abstract void read( ByteBuf byteBuf );
+    public abstract void write( ByteBuf byteBuf );
 }
