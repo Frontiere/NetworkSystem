@@ -1,6 +1,7 @@
 package me.frontiere.protocol.pipeline;
 
 import io.netty.buffer.ByteBuf;
+import io.netty.buffer.ByteBufInputStream;
 import io.netty.buffer.EmptyByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
@@ -18,13 +19,11 @@ public class PacketDecoder extends ByteToMessageDecoder {
         if ( byteBuf instanceof EmptyByteBuf ) {
             return;
         }
-
         int packetID = byteBuf.readInt();
         Class<? extends Packet> packetClass = Protocol.getPacketFromId( packetID );
-
         if ( packetClass != null ) {
             Packet packet = packetClass.newInstance();
-            packet.read( byteBuf );
+            packet.read( new ByteBufInputStream(byteBuf));
             list.add( packet );
         }
     }

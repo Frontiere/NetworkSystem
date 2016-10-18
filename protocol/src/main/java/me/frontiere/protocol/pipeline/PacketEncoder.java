@@ -1,4 +1,4 @@
-package me.frontiere.protocol.pipline;
+package me.frontiere.protocol.pipeline;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufOutputStream;
