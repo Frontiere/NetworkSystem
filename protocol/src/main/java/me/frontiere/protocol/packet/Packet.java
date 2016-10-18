@@ -6,13 +6,14 @@ import io.netty.buffer.ByteBufOutputStream;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+import java.io.IOException;
+
 /**
  * Class Created by Traape | Jan.
  * 18.10.2016
  */
 @NoArgsConstructor
-@AllArgsConstructor
 public abstract class Packet {
-    public abstract void read( ByteBufInputStream byteBuf );
-    public abstract void write( ByteBufOutputStream byteBuf );
+    public abstract void read( ByteBufInputStream byteBuf ) throws IOException;
+    public abstract void write( ByteBufOutputStream byteBuf ) throws IOException;
 }
